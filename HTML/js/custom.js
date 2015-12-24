@@ -14,7 +14,7 @@ var gummBaseUrl = gummGetBaseUrl(),
         if (allLoaded) {
             $(window).trigger('blue-box-page-loaded');
         }
-    }
+    };
     // Define constants
     var $bbSecCont,
         $bbSecContHeight,
@@ -30,7 +30,7 @@ var gummBaseUrl = gummGetBaseUrl(),
         blueboxLoaderIcon;
 
 	$(document).ready(function (){
-	    blueboxLoaderIcon    = new $.blueboxLoaderIcon;
+    blueboxLoaderIcon    = new $.blueboxLoaderIcon();
         blueBoxScriptsLoader = new $.blueBoxScriptsLoader();
         
         blueBoxScriptsLoader.push('const', function() {
@@ -76,9 +76,6 @@ var gummBaseUrl = gummGetBaseUrl(),
             });
 
             $(scope + '.bb-video-player').bboxBgVideoPlayer();
-            
-            $(scope + '.bb-audio-player').bboxSoundPlayer();
-
         });
         
         blueBoxScriptsLoader.push('load', function(scope) {
@@ -107,8 +104,11 @@ var gummBaseUrl = gummGetBaseUrl(),
                 var $sliderElement   = $ele.children('.swiper-container');
                 var $swiperSlides    = $sliderElement.children('.swiper-wrapper').children('.swiper-slide');
                 var $activeSlide     = $swiperSlides.filter('.active-item');
-                var activeSlideIndex = $activeSlide.size() > 0 ? $activeSlide.index() : 0;
-
+                if ((i === 2) &&  $('.bb-ui-view .left .primary')) {
+                 activeSlideIndex = 1;
+                } else {
+                    var activeSlideIndex = $activeSlide.size() > 0 ? $activeSlide.index() : 0;
+                }
                 
                 $swiperSlides.filter(':not(:first)').css('display', 'none');
                 $sliderElement.css({
@@ -210,7 +210,7 @@ var gummBaseUrl = gummGetBaseUrl(),
     			$('.bb-hello p.welcome-text').addClass('active');
     		    $('.bb-hello figure').addClass('active');
 
-    		    $('.bb-hello .bb-dots-details').addClass('initialized');
+                $('.bb-hello .bb-dots-details').addClass('initialized');
 
     		    $bbArrowDown.addClass('active');
     		    $('.bb-fixed-nav').addClass('active');
@@ -289,6 +289,14 @@ var gummBaseUrl = gummGetBaseUrl(),
             }
         });
         
+
+        $('li.menu-item').on('mouseenter', function() {
+            $(this).find('.links-out').css("color", "rgba(255,255,255,0.5)")
+        });
+        $('li.menu-item').on('mouseleave', function() {
+            $(this).find('.links-out').css("color", "rgba(255,255,255,0.1)")
+        });
+
         // var _blueBoxPreloadImages = $([]);
         // $('.bb-section-bg').each(function(i, ele){
         //     var $ele = $(ele);
@@ -351,7 +359,7 @@ var gummBaseUrl = gummGetBaseUrl(),
     // BEGIN BLUE BOX LOADER ICON
     $.blueboxLoaderIcon = function(options) {
         this.__construct(options);
-    }
+    };
     $.blueboxLoaderIcon.prototype = {
         __construct: function(options) {
             this.icon = $('<span id="bb-page-loader-icon" class="bb-css3-preloader bb-icon-loading-content"><span></span></span>');
@@ -376,13 +384,13 @@ var gummBaseUrl = gummGetBaseUrl(),
                 zIndex: ''
             });
         }
-    }
+    };
 
     // BEGIN BLUE BOX SCRIPTS LOADER PLUGIN
     $.blueBoxScriptsLoader = function (options) {
         // console.log('asd');
         this.__construct(options);
-    }
+    };
 
     $.blueBoxScriptsLoader.prototype = {
         __construct: function(options) {
@@ -442,18 +450,18 @@ var gummBaseUrl = gummGetBaseUrl(),
                 }
             });
         }
-    }
+    };
     
     // BEGIN BLUEBOX PARALLAX PLUGIN
     $.blueBoxParallax = function blueBoxParallax(options, callback) {
         this.__construct(options);
-    }
+    };
 
     $.blueBoxParallax.settings = {
         items: 'section .bb-parallax-bg',
         reverseScrolling: false,
-        accuracy: .2
-    }
+        accuracy: 0.2
+    };
 
     $.blueBoxParallax.prototype = {
         __construct: function(options) {
@@ -542,13 +550,13 @@ var gummBaseUrl = gummGetBaseUrl(),
                 });
         
         }
-    }
+    };
     
     // RESPONSIVE MENU PLUGIN
     $.blueBoxMobileMenu = function blueBoxMobileMenu(options, callback, element) {
         this.element = $(element);
         this.__construct(options, callback);
-    }
+    };
     
     $.blueBoxMobileMenu.settings = {
         button: '#mobile-menu-button',
@@ -563,7 +571,7 @@ var gummBaseUrl = gummGetBaseUrl(),
         preventTouchEventsOn: '.swiper-slide',
         onOpen: function(){},
         onClose: function(){}
-    }
+    };
     
     $.blueBoxMobileMenu.prototype = {
         state: 'closed',
@@ -610,8 +618,7 @@ var gummBaseUrl = gummGetBaseUrl(),
             options = $.extend({
                 translateWrap: true,
                 translateMenu: false,
-                alsoTranslate: true,
-                translateMenu: false
+                alsoTranslate: true
             }, options);
 
             $('body').removeClass('mobile-menu-active');
@@ -671,16 +678,15 @@ var gummBaseUrl = gummGetBaseUrl(),
             });
             this.dropdownButtons.on('click', function(e){
                 e.preventDefault();
+                var submenuItem = $(this).parent().children(_self.options.subMenuItems);
                 if ($(this).hasClass(_self.options.dropDownClassClose)) {
                     $(this).removeClass(_self.options.dropDownClassClose);
                     $(this).addClass(_self.options.dropDownClassOpen);
-                    var submenuItem = $(this).parent().children(_self.options.subMenuItems);
                     submenuItem.removeClass('dropdown-state-open').addClass('dropdown-state-close');
                     submenuItem.slideUp(200, 'linear');
                 } else {
                     $(this).removeClass(_self.options.dropDownClassOpen);
                     $(this).addClass(_self.options.dropDownClassClose);
-                    var submenuItem = $(this).parent().children(_self.options.subMenuItems);
                     submenuItem.slideDown(200, 'linear');
                     submenuItem.addClass('dropdown-state-open').addClass('dropdown-state-open');
                 }
@@ -694,7 +700,7 @@ var gummBaseUrl = gummGetBaseUrl(),
                         hold: false,
                         release: false,
                         swipe: true,
-                        swipe_velocity: .5,
+                        swipe_velocity: 0.5,
                         tap: false,
                         touch: true,
                         transform: false,
@@ -771,7 +777,7 @@ var gummBaseUrl = gummGetBaseUrl(),
             // });
 
         }
-    }
+    };
     
     $.fn.blueBoxMobileMenu = function blueBoxMobileMenuFn(options, callback) {
         this.each(function () {
@@ -785,13 +791,13 @@ var gummBaseUrl = gummGetBaseUrl(),
             
         });
         return this;
-    }
+    };
     
     // BEGIN BLUEBOX BULLETS NAVI PLUGIN
     $.blueBoxBulletsNavi = function blueBoxBulletsNavi(options, callback, element) {
         this.element = $(element);
         this.__construct(options, callback);
-    }
+    };
     
     $.blueBoxBulletsNavi.settings = {
         items: 'li',
@@ -800,7 +806,7 @@ var gummBaseUrl = gummGetBaseUrl(),
         speed: 500,
         deviation: 50,
         scrollDeviation: 0
-    }
+    };
     
     $.blueBoxBulletsNavi.prototype = {
         __construct: function(options, callback) {
@@ -827,7 +833,7 @@ var gummBaseUrl = gummGetBaseUrl(),
             $.each(this.sections, function(i, ele){
                 var offset;
                 if (ele.size() > 0) {
-                    offset = ele.offset().top
+                    offset = ele.offset().top;
                 } else {
                     offset = 0; 
                 }
@@ -886,7 +892,7 @@ var gummBaseUrl = gummGetBaseUrl(),
                 }
             });
         }
-    }
+    };
     
     $.fn.blueBoxBulletsNavi = function blueBoxBulletsNaviFn(options, callback) {
         this.each(function () {
@@ -900,19 +906,19 @@ var gummBaseUrl = gummGetBaseUrl(),
             
         });
         return this;
-    }
+    };
     
     // BEGIN BLUEBOX SCROLLR PLUGIN
     $.blueBoxScrollr = function blueBoxScrollr(options, callback) {
         this.__construct(options);
-    }
+    };
 
     $.blueBoxScrollr.settings = {
         items: '.bb-scrollr-item',
         inactiveClass: 'not-initialized',
         activeClass: 'initialized',
         deviation: -50
-    }
+    };
 
     $.blueBoxScrollr.prototype = {
         initialized: false,
@@ -974,7 +980,7 @@ var gummBaseUrl = gummGetBaseUrl(),
             var _self = this;
             this.scrollEventCallback = function() {
                 _self.unhideHidden();
-            }
+            };
             $(window).on('scroll', this.scrollEventCallback);
             $(window).on('load', function(e){
                 // setTimeout(function(){
@@ -982,7 +988,7 @@ var gummBaseUrl = gummGetBaseUrl(),
                 // }, 0);
             });
         }
-    }
+    };
     
     // ============== //
     // BBOX BG PLAYER //
@@ -991,7 +997,7 @@ var gummBaseUrl = gummGetBaseUrl(),
     $.bboxBgVideoPlayer = function(options, callback, element) {
         this.element = $(element);
         this.__construct(options, callback);
-    }
+    };
     
     $.bboxBgVideoPlayer.settings = {
         loop: true,
@@ -1002,7 +1008,7 @@ var gummBaseUrl = gummGetBaseUrl(),
         useFlashForFirefox: true,
         videoTechOrder: ['html5','flash']
         // videoTechOrder: ['flash','html5']
-    }
+    };
     
     $.bboxBgVideoPlayer.prototype = {
         __construct: function(options, callback) {
@@ -1166,7 +1172,7 @@ var gummBaseUrl = gummGetBaseUrl(),
             } catch(err){}
             e.data.instance.element.data('bboxBgVideoPlayer', false);
         },
-    }
+    };
     
     $.fn.bboxBgVideoPlayer = function bboxBgVideoPlayer(options, callback) {
         this.each(function () {
@@ -1180,10 +1186,10 @@ var gummBaseUrl = gummGetBaseUrl(),
             
         });
         return this;
-    }
+    };
 
 })(jQuery);
-    
+
 L.mapbox.accessToken = 'pk.eyJ1IjoidGRyZWl0eiIsImEiOiJyN050dGdJIn0.72HAwKIHesHgbNvJi41v0Q';
     var map = L.mapbox.map('map', 'tdreitz.hm21ldll', {zoomControl: false}).setView([34.011, -118.375], 12);
 

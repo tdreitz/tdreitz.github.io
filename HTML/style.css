@@ -308,6 +308,11 @@ a:focus {
   border-bottom: 1px solid #bb9a54;
   line-height: 50px;
 }
+.bb-logo h4 {
+  color: white;
+  padding-top: 3px;
+  font-weight: 100;
+}
 .bb-logo img {
   display: inline-block;
 }
@@ -1323,9 +1328,17 @@ section.bb-quotes p {
   line-height: 48px;
   font-weight: 300;
 }
+
+section.bb-quotes p span {
+  color: #bb9a54;
+}
 section.bb-quotes strong {
   margin-top: 8px;
   display: inline-block;
+}
+
+section.bb-quotes em {
+  font-weight: 100;
 }
 section.bb-quotes .swiper-container {
   height: 230px;
@@ -1437,6 +1450,12 @@ section.bb-quotes .swiper-slide {
 .bb-portfolio a.image-wrap img {
   display: block;
 }
+
+.bb-portfolio a.image-wrap img[src='images/test-2-blocjams.png'] {
+  position: relative;
+  left: -50px;
+}
+
 .bb-portfolio a.image-wrap span {
   display: block;
   position: absolute;
@@ -1559,6 +1578,7 @@ section.bb-quotes .swiper-slide {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   filter: alpha(opacity=100);
   opacity: 1;
+  overflow: hidden;
 }
 .bb-portfolio .swiper-container .project-heading {
   font-size: 16px;
@@ -2018,10 +2038,22 @@ input[type="submit"]:hover {
   position: relative;
   margin-bottom: 90px;
 }
+
 .bb-blog-loop .bb-blog-wrap article:last-child,
 .bb-portfolio-post .bb-blog-wrap article:last-child {
   margin-bottom: 0;
 }
+
+.bb-blog-loop .bb-blog-wrap article iframe,
+.bb-portfolio-post .bb-blog-wrap article iframe {
+  height: 587.5px;
+}
+
+.bb-blog-loop .bb-blog-wrap article p,
+.bb-portfolio-post .bb-blog-wrap article p {
+  padding-top: 30px;
+}
+
 .bb-blog-loop .bb-blog-wrap article .bb-date,
 .bb-portfolio-post .bb-blog-wrap article .bb-date {
   position: absolute;
@@ -2498,6 +2530,8 @@ input[type="submit"]:hover {
 .bb-portfolio-post .bb-blog-wrap article {
   padding-left: 0;
 }
+
+
 .bb-portfolio-post .bb-blog-wrap article .image-wrap {
   margin-bottom: 30px;
 }
@@ -2940,6 +2974,10 @@ footer .footer-logo {
   margin: 0 auto 15px auto;
   color: #bb9a54;
 }
+
+footer .footer-logo h1 {
+  font-weight: 100;
+}
 footer .footer-logo img {
   display: block;
 }
@@ -3040,7 +3078,7 @@ body.mobile-menu-active {
 
   position: relative;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
+}   
 #mobile-menu .prime-nav-mobile-list li.current-menu-item > a,
 #mobile-menu .prime-nav-mobile-list li.current-menu-item > a:hover,
 #mobile-menu .prime-nav-mobile-list li.current-menu-parent > a,
@@ -3060,11 +3098,9 @@ body.mobile-menu-active {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#1affffff, endColorstr=#1affffff);
   background-color: rgba(255, 255, 255, 0.1);
   /* css3 - done */
-
 }
 #mobile-menu .prime-nav-mobile-list li.current-menu-item > a {
   /*background-color: rgba(0, 0, 0, 0.26) !important;*/
-
 }
 #mobile-menu .prime-nav-mobile-list li > a:hover {
   -webkit-box-shadow: none;
@@ -3086,30 +3122,51 @@ body.mobile-menu-active {
   line-height: 25px;
   padding: 18px 15px 17px 15px;
   display: inline-block;
-  color: rgba(255, 255, 255, 0.26);
+  color: rgba(255, 255, 255, 1);
   /* bluebox option 2 */
 
-  font-size: 14px;
+  font-size: 21px;
   /* ne se bara */
 
   position: absolute;
   z-index: 51;
-  left: 0;
+  left: 25px;
   top: 0;
   bottom: 0;
   /*text-shadow: 0px -1px 0px rgba(255, 255, 255, 0.1), 0px 1px 0px rgba(0, 0, 0, 0.6);
   /* css3 */
-
 }
+
 #mobile-menu .prime-nav-mobile-list li a {
   line-height: 25px;
   min-height: 25px;
   display: block;
-  padding: 17px 45px 18px 40px;
+  padding: 17px 45px 18px 70px;
   color: rgba(255, 255, 255, 0.9);
+}
+#mobile-menu .prime-nav-mobile-list li a:first-child {
+  padding-left: 40px;
 }
 #mobile-menu .prime-nav-mobile-list li a:hover {
   color: #bb9a54;
+}
+
+#mobile-menu .prime-nav-mobile-list li i:last-of-type {
+  cursor: pointer;
+  position: absolute;
+  text-align: center;
+  left: inherit;
+  z-index: 9999;
+  right: 15px;
+  top: -5px;
+  line-height: 30px;
+  height: 30px;
+  width: 30px;
+
+  color: rgba(255, 255, 255, 0.1);
+  -webkit-transition: color 0.25s ease-in-out;
+  -o-transition: color 0.25s ease-in-out;
+  transition: color 0.25s ease-in-out;
 }
 #mobile-menu .prime-nav-mobile-list li:last-child a {
   border-bottom: none;
@@ -3130,7 +3187,7 @@ body.mobile-menu-active {
   -webkit-border-radius: 100% !important;
   -moz-border-radius: 100% !important;
   border-radius: 100% !important;
-  /* css3 - done */
+   /*css3 - done */
 
   padding: 0;
   display: inline-block;

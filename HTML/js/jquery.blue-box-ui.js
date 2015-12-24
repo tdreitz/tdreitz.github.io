@@ -546,16 +546,32 @@
                 _self.openPrevView();
             });
             $(document).on('click', 'a', function(e){
+                // console.log('passed');
                 var $this = $(this);
+                // console.log('passed');
                 var url = _self.getRealUrl($this.attr('href'));
+
+                var $targ = $this.parent();
                 
+                if ($targ.parent().hasClass('footer-social-links')) {
+                    return 
+                }
+
+                if ($(this).hasClass('outside-link')) {
+                    console.log('>passed');
+                    return
+                }
+
                 if ($(this).attr('id') === 'mobile-menu-button') {
+                    console.log('>passed');
                     return;
                 }
                 
                 e.preventDefault();
+                console.log('>passed');
                 
                 if (url === window.location.href) {
+                    console.log('>passed');
                     return;
                 }
                 
