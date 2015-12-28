@@ -553,17 +553,19 @@
 
                 var $targ = $this.parent();
                 
+                if ($targ.hasClass('bb-services-pagination')) {
+                    return
+                }
+
                 if ($targ.parent().hasClass('footer-social-links')) {
                     return 
                 }
 
                 if ($(this).hasClass('outside-link')) {
-                    console.log('>passed');
                     return
                 }
 
                 if ($(this).attr('id') === 'mobile-menu-button') {
-                    console.log('>passed');
                     return;
                 }
                 
