@@ -1,0 +1,1 @@
+changeResponsivePortfolioView=function(){var o=$("iframe"),l=$("button");console.log(o),console.log(l),l.on("click",function(){console.log("click click click"),o.hasClass("col-md-12")?(o.removeClass("col-md-12"),o.addClass("col-md-4 col-md-offset-4")):(o.removeClass("col-md-4 col-md-offset-4"),o.addClass("col-md-12"))})};
