@@ -3523,8 +3523,9 @@ body.not-loaded .bb-mobile-head {
 /* BEGIN responsive */
 @media (max-width: 979px) {
   .bb-mobile-head {
-    display: block;
+    display: none;
   }
+
   section {
     padding: 40px 0;
   }
@@ -3591,6 +3592,9 @@ body.not-loaded .bb-mobile-head {
     -ms-transform: scale(0.7) !important;
     -o-transform: scale(0.7) !important;
   }
+  #bb-hello {
+    height: 530px;
+  }
   .bb-hello .row figure {
     width: 80px;
     height: 80px;
@@ -3606,6 +3610,9 @@ body.not-loaded .bb-mobile-head {
   }
   .bb-hello .scroll-down {
     margin-bottom: 10px !important;
+  }
+  .bb-hello .bb-section-bg {
+    background-size: cover;
   }
   .bb-services {
     padding-bottom: 40px;

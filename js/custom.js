@@ -317,7 +317,12 @@ var gummBaseUrl = gummGetBaseUrl(),
                 $sectionMargin = $winHeight / 2 - $bbSecCont.height() / 2;
                 $pagesBulletsMargin = -($bbPagesBulletsHeight/2);
 
-            $('section.bb-hello').height($winHeight);
+            if ($(window).innerWidth() < 980) {
+                $('section.bb-hello').height($winHeight * 0.85);
+            } else {
+                $('section.bb-hello').height($winHeight);
+            }   
+            
 
             $bbSecCont.css('margin-top', $sectionMargin / 0.85);
             $bbPagesBullets.css('margin-top', $pagesBulletsMargin);
