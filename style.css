@@ -3525,7 +3525,10 @@ body.not-loaded .bb-mobile-head {
   .bb-mobile-head {
     display: none;
   }
-
+  #mobile-menu .prime-nav-mobile-list li a:first-child {
+    padding-left: 0;
+    padding-top: 0;
+  }
   section {
     padding: 40px 0;
   }
@@ -3592,8 +3595,8 @@ body.not-loaded .bb-mobile-head {
     -ms-transform: scale(0.7) !important;
     -o-transform: scale(0.7) !important;
   }
-  #bb-hello {
-    height: 530px;
+  .bb-hello .row {
+    display: none;
   }
   .bb-hello .row figure {
     width: 80px;
@@ -3601,8 +3604,8 @@ body.not-loaded .bb-mobile-head {
     margin: 30% 0 20px 0;
   }
   .bb-hello .row h1 {
-    font-size: 18px;
-    line-height: 20px;
+    font-size: 36px;
+    line-height: 48px;
     font-weight: 300;
   }
   .welcome-text {
@@ -3616,6 +3619,7 @@ body.not-loaded .bb-mobile-head {
   }
   .bb-services {
     padding-bottom: 40px;
+    display: none;
   }
   .bb-services .swiper-slide {
     width: 200px;
@@ -3632,6 +3636,10 @@ body.not-loaded .bb-mobile-head {
   }
   section.bb-fancy .bb-button {
     margin-top: 20px;
+  }
+
+  section.bb-quotes {
+    display: none;
   }
   section.bb-quotes .swiper-slide {
     width: 200px;
