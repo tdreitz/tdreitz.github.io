@@ -1133,6 +1133,9 @@ footer.light .footer-social-links li a:hover i {
 
   cursor: move;
 }
+#bb-service .swiper-slide img:nth-child(-n+3) {
+  padding-top: 20px;
+}
 .swiper-slide p {
   font-size: 16px;
   line-height: 20px;
