@@ -1258,8 +1258,8 @@ function gummGetBaseUrl() {
     var base = window.location.origin;
     var pathname = window.location.pathname;
     
-    if (pathname.indexOf('/reset') !== false) {
-        base += pathname.substr(0, pathname.lastIndexOf('/reset')) + '/reset/';
+    if (pathname.indexOf('/') !== false) {
+        base += pathname.substr(0, pathname.lastIndexOf('/'));
     }
     
     return base;

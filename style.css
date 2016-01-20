@@ -1133,6 +1133,7 @@ footer.light .footer-social-links li a:hover i {
 
   cursor: move;
 }
+
 .swiper-slide p {
   font-size: 16px;
   line-height: 20px;
@@ -1146,6 +1147,9 @@ footer.light .footer-social-links li a:hover i {
   width: 746px;
 }
 /* BEGIN services icons */
+#bb-services .swiper-slide img:nth-child(-n+3) {
+  padding-top: 20px;
+}
 .bb-services-pagination {
   margin: 90px 0 0 0;
   padding: 0;
@@ -1573,7 +1577,6 @@ section.bb-quotes .swiper-slide {
 }
 .bb-portfolio .swiper-container .swiper-slide {
   width: 262px;
-  padding-right: 1px;
   text-align: center;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   filter: alpha(opacity=100);
