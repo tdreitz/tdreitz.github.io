@@ -571,14 +571,19 @@
                 
                 e.preventDefault();
                 console.log('>passed');
+
+                var tylerTest = window.location.href;
                 
+                console.log(url, tylerTest);
+
                 if (url === window.location.href) {
                     console.log('>passed');
                     return;
                 }
                 
                 if (url === '#') {
-                    
+
+
                 } else if (url.indexOf('#') === 0) {
                     var $scrollToEle = $(url);
                     if ($scrollToEle.size() > 0) {
@@ -589,6 +594,11 @@
                         });
                     }
                 } else if (url.indexOf('#') > 0) {
+
+                    tylerTest2 = url.indexOf('#');
+                    console.log(tylerTest2);
+                    
+                    console.log(gummBaseUrl);
 
                 } else if (gummBaseUrl.indexOf(url) === 0) {
                     if (_self.leftViewUrl.length > 0) {
