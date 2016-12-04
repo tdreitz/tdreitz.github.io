@@ -1,171 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Single Page Apps for GitHub Pages</title>
+    <meta name="description" content="Lightweight solution for deploying single page apps with GitHub Pages. Code and concept by Rafael Pedicini.">
 
-        <!-- Bootstrap core CSS -->
-	    <link href="bootstrap-3.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>html{background-color: #F0F0F0;}</style>
 
-	    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
-        <link href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet">
+    <!-- start favicon -->
+    <link rel="apple-touch-icon" sizes="57x57" href="http://favicon.rafrex.com/green-grid-144-168-192/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="http://favicon.rafrex.com/green-grid-144-168-192/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="http://favicon.rafrex.com/green-grid-144-168-192/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="http://favicon.rafrex.com/green-grid-144-168-192/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="http://favicon.rafrex.com/green-grid-144-168-192/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="http://favicon.rafrex.com/green-grid-144-168-192/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="http://favicon.rafrex.com/green-grid-144-168-192/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="http://favicon.rafrex.com/green-grid-144-168-192/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="http://favicon.rafrex.com/green-grid-144-168-192/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="http://favicon.rafrex.com/green-grid-144-168-192/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://favicon.rafrex.com/green-grid-144-168-192/favicon-194x194.png" sizes="194x194">
+    <link rel="icon" type="image/png" href="http://favicon.rafrex.com/green-grid-144-168-192/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="http://favicon.rafrex.com/green-grid-144-168-192/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="http://favicon.rafrex.com/green-grid-144-168-192/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="http://favicon.rafrex.com/green-grid-144-168-192/manifest.json">
+    <link rel="mask-icon" href="http://favicon.rafrex.com/green-grid-144-168-192/safari-pinned-tab.svg" color="#00a800">
+    <link rel="shortcut icon" href="http://favicon.rafrex.com/green-grid-144-168-192/favicon.ico">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-TileImage" content="http://favicon.rafrex.com/green-grid-144-168-192/mstile-144x144.png">
+    <meta name="msapplication-config" content="http://favicon.rafrex.com/green-grid-144-168-192/browserconfig.xml">
+    <meta name="theme-color" content="#000000">
+    <!-- end favicon -->
 
-        <link href='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.css' rel='stylesheet' />
+    <link rel="stylesheet" href="/styles/app.css">
 
-	    <!-- Custom styles for this template-->
-        <link href="style.css" rel="stylesheet">
+    <!-- Start Single Page Apps for GitHub Pages -->
+    <script type="text/javascript">
 
-        <link href="js/swiperjs/idangerous.swiper.css" rel="stylesheet">
+      /////////////////////////////////////////////////////////////////////////
+      // Single Page Apps for GitHub Pages
+      // https://github.com/rafrex/spa-github-pages
+      // Copyright (c) 2016 Rafael Pedicini, licensed under the MIT License
+      // ----------------------------------------------------------------------
+      // This script checks to see if a redirect is present in the query string
+      // and converts it back into the correct url and adds it to the
+      // browser's history using window.history.replaceState(...),
+      // which won't cause the browser to attempt to load the new url.
+      // When the single page app is loaded further down in this file,
+      // the correct url will be waiting in the browser's history for
+      // the single page app to route accordingly.
+      /////////////////////////////////////////////////////////////////////////
 
-        <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic' rel='stylesheet' type='text/css'>
+      (function(l) {
+        if (l.search) {
+          var q = {};
+          l.search.slice(1).split('&').forEach(function(v) {
+            var a = v.split('=');
+            q[a[0]] = a.slice(1).join('=').replace(/~and~/g, '&');
+          });
+          if (q.p !== undefined) {
+            window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + (q.p || '') +
+              (q.q ? ('?' + q.q) : '') +
+              l.hash
+            );
+          }
+        }
+      }(window.location))
+    </script>
+    <!-- End Single Page Apps for GitHub Pages -->
 
-        <title>Tyler Reitz</title>
+    <!-- Start Google Analytics -->
+    <script>
+      if (window.location.hostname === 'spa-github-pages.rafrex.com') {
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-        <!-- Client side less compiling
-	    <link rel="stylesheet/less" type="text/css" href="style.less">-->
+        ga('create', 'UA-75627125-4', 'auto');
+        ga('send', 'pageview');
+      } else {
+        console.warn(
+          'WARNING: The Google analytics function is for a different ' +
+          'domain (http://spa-github-pages.rafrex.com) and did not run, ' +
+          'please remove the script from the index.html file.');
+      }
+    </script>
+    <!-- End Google Analytics -->
 
-	    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	    <!--[if lt IE 9]>
-		    <script src="bootstrap-3.0.0/assets/js/html5shiv.js"></script>
-		    <script src="bootstrap-3.0.0/assets/js/respond.min.js"></script>
-	    <![endif]-->
-
-    </head>
-
-	<body class="not-loaded">
-
-        <div id="bb-mobile-head" class="bb-mobile-head"></div>
-
-        <!-- BEGIN nav menu -->
-
-        <div id="mobile-menu">
-            <ul id="prime-nav-mobile" class="prime-nav-mobile-list">
-                <li class="menu-item">
-                    <a id="bb-logo" href="index.html" class="bb-logo" data-rel-href="index.html">
-                        <h1>Tyler Reitz</h1>
-                        <h4 style="color: white;">Front End Developer</h4>
-                    </a>
-                </li>
-                <li class="menu-item">
-                    <i class="ion-ios-paper-outline"></i>
-                    <a class="outside-link" href="https://sumry.me/tylerreitz" target="_blank">Resume</a>
-                    <i class="ion-share links-out"></i>
-                </li>
-                <li class="menu-item">
-                    <i class="ion-social-github-outline"></i>
-                    <a class="outside-link" href="https://github.com/tdreitz" target="_blank">GitHub</a>
-                    <i class="ion-share links-out"></i>
-                </li>
-                <li class="menu-item">
-                    <i class="ion-social-linkedin-outline"></i>
-                    <a class="outside-link" href="https://www.linkedin.com/in/tylerreitz" target="_blank">LinkedIn</a>
-                    <i class="ion-share links-out"></i>
-                </li>
-                <!-- <li class="menu-item">
-                    <a href="#">List Item</a>
-                    <a class="dropdown-link fa fa-caret-down" href="#"></a>
-                    <ul class="sub-menu dropdown-menu">
-                        <li class="menu-item">
-                            <a href="#">Sub List Item</a>
-                        </li>
-                        <li class="menu-item">
-                            <a href="#">Sub List Item</a>
-                        </li>
-                    </ul>
-                </li> -->
-            </ul>
-        </div>
-
-        <!-- BEGIN nav menu -->
-
-        <div id="mobile-menu-buttons">
-
-    		<a id="mobile-menu-button" href="#" class="bb-fixed-nav" data-effect="st-effect-2">
-    			<span class="button" data-effect="st-effect-2">
-        			<span></span>
-        		</span>
-    		</a>
-		</div>
-
-		<!-- BEGIN static buttons -->
-
-		<a id="bb-ui-close-primary-view" href="#" data-0="top:38px;" data-100="top:18px;"></a>
-
-        <div class="bb-ui-view primary left">
-            <div class="bb-ui-view-container">
-
-                <div class="bb-ui-view-content">
-
-            		<ul class="bb-pages-bullets">
-            			<li class="current"><a href="#bb-hello"></a><label><span>Hello</span></label></li>
-            			<li><a href="#bb-services"></a><label><span>Services</span></label></li>
-            			<li><a href="#bb-quotes"></a><label><span>Quotes</span></label></li>
-                        <li><a href="#bb-portfolio"></a><label><span>Portfolio</span></label></li>
-            			<li><a href="#bb-contact"></a><label><span>Contact</span></label></li>
-            		</ul>
-
-            		<!-- END static buttons -->
-
-            		<!-- BEGIN hello section -->
-
-                	<section id="bb-hello" class="bb-hello light">
-
-                	<!--<section id="bb-hello" class="bb-hello light">-->
-
-                		<div class="bb-section-bg bb-parallax-bg"
-                		    data-initial-position="-500"
-                		    data-reverse-scrolling="true"
-                		    data-accuracy="0.519395231">
-                		</div>
-
-                		<div class="scroll-down-wrap" data-100="opacity:1;" data-300="opacity:0;">
-            	    		<div class="scroll-down" data-0="bottom:0px;" data-1080="bottom:-160px;">
-            		    		<span class="scroll-down-label">Scroll Down</span>
-            		    		<span class="bb-arrow-down" ></span>
-            		    	</div>
-            	    	</div>
-
-
-                		<div class="row bb-section-container">
-                			<div class="col-md-8 col-md-offset-2">
-            					<h1>If we don't create the <br> thing that kills [<span>your product</span>], <br> someone else will.</h1>
-            					<span class="bb-dots-details">
-            						<span class="first"></span>
-            						<span class="second"></span>
-            						<span class="third"></span>
-            						<span class="fourth"></span>
-            					</span>
-            					<p class="welcome-text"><span>Facebook</span>  –  <em>Little Red Book</em> </p>
-                			</div>
-                		</div>
-                	</section>
-
-                	<!-- END hello section -->
-
-    	<script type="text/javascript" src="js/skrollr.min.js"></script>
-    	<script type="text/javascript" src="js/modernizr.custom.js"></script>
-    	<script type="text/javascript" src="js/jquery.1.10.2.min.js"></script>
-        <script type="text/javascript" src="js/smoothscroll.js"></script>
-        <script type="text/javascript" src="js/jquery.parallax-1.1.3.js"></script>
-
-        <script type="text/javascript" src="js/video.js/video.js"></script>
-
-    	<script type="text/javascript" src="js/swiperjs/idangerous.swiper.js"></script>
-
-        <script src='https://api.mapbox.com/mapbox.js/v2.2.1/mapbox.js'></script>
-
-
-        <script type="text/javascript" src="js/custom.js"></script>
-        <script type="text/javascript" src="js/jquery.blue-box-ui.js"></script>
-
-        <script type="text/javascript" src="js/jquery.hammer.min.js"></script>
-        <script type="text/javascript" src="js/jquery.transit.min.js"></script>
-
-        <script type="text/javascript" src="js/jquery-ui-1.10.3.custom.min.js"></script>
-        <script type="text/javascript" src="js/imagesloaded.pkgd.js"></script>
-        <script type="text/javascript" src="js/jplayer/jquery.jplayer.min.js"></script>
-	</body>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- single page app in bundle.js -->
+    <script src="/__build__/bundle.js"></script>
+  </body>
 </html>
