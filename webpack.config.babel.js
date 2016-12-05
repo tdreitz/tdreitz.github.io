@@ -3,7 +3,7 @@ import webpack from 'webpack'
 
 export default {
   context: __dirname,
-  entry: './index.jsx',
+  entry: './index.react.js',
   output: {
     path: `${__dirname}/__build__`,
     filename: 'bundle.js',
@@ -14,7 +14,7 @@ export default {
       {
         test: /\.css$/,
         exclude: /node_modules/,
-        loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]!postcss' 
+        loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]!postcss'
       }
     ],
   },
@@ -25,6 +25,7 @@ export default {
     contentBase: __dirname,
     inline: true
   },
+  devTool: 'cheap-eval-source-map',
   plugins: (() => {
     if (process.argv.indexOf('-p') !== -1) {
       return [

@@ -1,13 +1,13 @@
-import React from 'react';
-import { render } from 'react-dom';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-import 'current-input';
+import React from 'react'
+import { render } from 'react-dom'
+import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import 'current-input'
 
-import App from './components/App';
-import Home from './components/Home';
-import PageNotFound from './components/PageNotFound';
-import ExampleComponent from './components/ExampleComponent';
-import ExampleTwoDeepComponent from './components/ExampleTwoDeepComponent';
+import App from './components/App'
+import Home from './components/Home'
+import PageNotFound from './components/PageNotFound'
+import ExampleComponent from './components/ExampleComponent'
+import ExampleTwoDeepComponent from './components/ExampleTwoDeepComponent'
 
 
 const routes = (
@@ -20,7 +20,7 @@ const routes = (
 
     <Route path="*" mapMenuTitle="Page Not Found" component={PageNotFound} />
   </Route>
-);
+)
 
 
 render(
@@ -29,4 +29,4 @@ render(
     routes={routes}
   />,
   document.getElementById('root')
-);
+)
