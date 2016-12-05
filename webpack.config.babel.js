@@ -11,10 +11,19 @@ export default {
   module: {
     loaders: [
       { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel' },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]!postcss' 
+      }
     ],
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.react.js'],
+  },
+  devServer: {
+    contentBase: __dirname,
+    inline: true
   },
   plugins: (() => {
     if (process.argv.indexOf('-p') !== -1) {
