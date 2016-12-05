@@ -1,5 +1,5 @@
 /* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
-import webpack from 'webpack';
+import webpack from 'webpack'
 
 export default {
   context: __dirname,
@@ -14,7 +14,7 @@ export default {
     ],
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['', '.js', '.jsx', '.react.js'],
   },
   plugins: (() => {
     if (process.argv.indexOf('-p') !== -1) {
@@ -29,8 +29,8 @@ export default {
             comments: false,
           },
         }),
-      ];
+      ]
     }
-    return [];
+    return []
   })(),
-};
+}
