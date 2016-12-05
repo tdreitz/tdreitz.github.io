@@ -1,0 +1,12 @@
+@import './components/shared/base.css';
+@import './components/shared/layout/index.css';
+@import './components/shared/typography/index.css';
+
+#root {
+  height: 100%;
+}
+
+.container {
+  height: 85%;
+  margin: auto;
+}

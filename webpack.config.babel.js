@@ -7,6 +7,7 @@ export default {
   output: {
     path: `${__dirname}/__build__`,
     filename: 'bundle.js',
+    publicPath: 'components'
   },
   module: {
     loaders: [
