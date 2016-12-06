@@ -1,32 +1,26 @@
 /* eslint import/no-extraneous-dependencies: ["error", {"devDependencies": true}] */
+import path from 'path'
 import webpack from 'webpack'
 
 export default {
   context: __dirname,
-  entry: './index.react.js',
+  entry: './index.jsx',
   output: {
     path: `${__dirname}/__build__`,
     filename: 'bundle.js',
-    publicPath: 'components'
+    publicPath: '/__build__/'
   },
   module: {
     loaders: [
-      { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel' },
-      {
-        test: /\.css$/,
-        exclude: /node_modules/,
-        loader: 'style!css?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]!postcss'
-      }
+      { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel' }
     ],
   },
-  resolve: {
-    extensions: ['', '.js', '.jsx', '.react.js'],
-  },
   devServer: {
-    contentBase: __dirname,
-    inline: true
+    contentBase: __dirname
   },
-  devTool: 'cheap-eval-source-map',
+  resolve: {
+    extensions: ['', '.js', '.jsx'],
+  },
   plugins: (() => {
     if (process.argv.indexOf('-p') !== -1) {
       return [
