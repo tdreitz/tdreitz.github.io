@@ -1,0 +1,10 @@
+.link {
+  @link-colors black {
+    focus: red;
+    hover: color(red hue(180));
+  }
+}
+
+.active {
+  color: red;
+}

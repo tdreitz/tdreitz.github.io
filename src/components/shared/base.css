@@ -1,0 +1,35 @@
+:root {
+  --blue: rgb(0,0,238);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+::selection {
+  background-color: #000;
+  color: #fff;
+}
+
+html {
+  font-size: responsive;
+  min-font-size: 13px;  /*0.8125rem;*/
+  max-font-size: 19px; /*1.125rem;*/
+  lower-font-range: 320px;
+  upper-font-range: 1360px;
+}
+
+body {
+  height: 100vh;
+  position: relative;
+  margin: 0;
+  font-family: Inconsolata, monospace;
+}
+
+a {
+  @link-colors var(--blue) {
+    hover: red;
+  }
+}

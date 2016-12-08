@@ -1,0 +1,16 @@
+.container {
+  display: flex;
+  height: 100%;
+  max-width: 960px;
+  margin: auto;
+}
+.main {
+  flex-basis: 70%;
+  padding: .5rem 2rem 5% 2rem;
+}
+
+@media screen and (width <= 664px) {
+    .container {
+      flex-direction: column-reverse;
+    }
+}

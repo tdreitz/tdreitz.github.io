@@ -1,0 +1,38 @@
+.container {
+  max-width: 1000px;
+  margin: auto;
+}
+.header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1%;
+
+  @media screen and (width <= 520px) {
+    justify-content: center;
+    padding-top: 56px;
+
+    ul {
+      padding-left: 0;
+    }
+  }
+}
+.nav {
+  display: flex;
+  justify-content: space-around;
+  padding-left: 5%;
+  flex-grow: .75;
+}
+.items {
+  list-style-type: none;
+  padding: 5%;
+}
+
+.link {
+  composes: link from '../../elements/NavLink/NavLink.css';
+}
+
+.active {
+  composes: active from '../../elements/NavLink/NavLink.css';
+}
